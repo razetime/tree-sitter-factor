@@ -1,0 +1,11 @@
+=============
+Basic syntax
+=============
+
+USE: math.parser
+
+---
+
+(source_file
+  (single_use (vocab_name)))
+

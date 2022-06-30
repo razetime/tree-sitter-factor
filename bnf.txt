@@ -1,0 +1,35 @@
+root = ( /#!.+$/ )? // shebang
+     | base
+
+base = word_defn
+     | import_defn
+     | tuple_or_class_defn
+     | other_syn
+     | vocab_private
+     | expr
+     | comment
+
+word_defn = simple_word_defn
+          | simple_local_word_defn 
+          | macro_defn
+          | macro_local_defn
+          | memoized_defn
+          | memoized_local_defn
+          | typed_word_defn
+          | typed_local_word_defn
+          | method_defn
+          | method_local_defn
+          | constructor_defn
+          | generic_defn
+          | generic_nth_defn
+          | hook_defn
+
+simple_word_defn = ':' ws stack_effect ws expr ';' 
+
+ws = /\s+/
+
+stack_effect = '(' ws effect '--' ws effect ')' 
+
+effect = (name (':' stack_effect)? ws)*
+
+name = /\S+/,

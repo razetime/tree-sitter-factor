@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-factor",
+  "version": "1.0.0",
+  "description": "tree-sitter grammar for the Factor programming language",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Razetime",
+  "license": "ISC",
+  "dependencies": {
+    "man": "^2.0.0",
+    "nan": "^2.16.0",
+    "node": "^18.4.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  }
+}
