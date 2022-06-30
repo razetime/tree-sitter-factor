@@ -4,7 +4,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(
         $._shebang,
-        repeat($._definition)
+        repeat(seq($._definition,ews))
     ),
 
     _shebang: $ => /#!.*$/,
@@ -113,6 +113,8 @@ module.exports = grammar({
     namel: $ => repeat1(sname,ws),
 
     ws: $ => /\s+/,
+
+    ews: $ => choice(ws,/$/),
 
     word: $ => /\S+/,
 
