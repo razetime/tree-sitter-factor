@@ -1,15 +1,15 @@
 module.exports = grammar({
-  name: 'factor',
+  name: 'Factor',
 
   extras: $ => [$.comment],
 
   rules: {
     source_file: $ => seq(
-        optional($.shebang),
-        repeat(seq($._definition,$.ws))
+        optional($._shebang),
+        repeat(seq($._definition,$.ews))
     ),
 
-    shebang: $ => /#!.*\s+/,
+    _shebang: $ => /#!.*\n/,
 
     _definition: $ => choice(
         $.word_defn,
@@ -17,31 +17,27 @@ module.exports = grammar({
         $.tuple_or_class_defn,
         $.other_syntax_defn,
         $.vocab_private,
-        $._token
+        $.expr
     ),
-    
-    word_defn: $ => choice(
-        seq(/::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),';'),
-        seq(/MACRO::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),';'),
-        seq(/MEMO::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),';'),
-        seq(/TYPED::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),';'),
-        seq(/M::?/,$.ws,$.sname,$.ws,$.sname,$.ws,optional($.expr),';'),
+
+    word_defn: $ => prec(1,choice(
+        seq(/::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),$.ws,';'),
+        seq(/MACRO::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),$.ws,';'),
+        seq(/MEMO::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),$.ws,';'),
+        seq(/TYPED::?/,$.ws,$.sname,$.ws,$.stack_effect,$.ws,optional($.expr),$.ws,';'),
+        seq(/M::?/,$.ws,$.sname,$.ws,$.sname,$.ws,optional($.expr),$.ws,';'),
         seq('GENERIC:',$.ws,$.sname,$.ws,$.stack_effect),
         seq('GENERIC#:',$.ws,$.sname,$.ws,/\d+/,$.ws,$.stack_effect),
         seq('GENERIC#:',$.ws,$.sname,$.ws,/\d+/,$.ws,$.stack_effect),
         seq('HOOK:',$.ws,$.sname,$.ws,$.sname,$.ws,$.stack_effect)
-    ),
+    )),
 
-    expr: $ => repeat1(seq($._token,$.ws)),
-
-    // stack_effect: $ => /\((\s+\S+)*\s+--(\s+\S+)*\s+\)/,
-    
     stack_effect: $ => seq('(',$.ws,optional($.effect),'--',$.ws,optional($.effect),')'),
 
     effect: $ => repeat1(seq($.sname,optional(seq(':',$.ws,$.stack_effect)),$.ws)),
 
     import_defn: $ => choice( 
-        seq('USING:',$.ws,$.namel,';'),
+        seq('USING:',$.ws,$.namel,$.ws,';'),
         seq(/USE:|UNUSE:|IN:|QUALIFIED:/,$.ws,$.sname),
         seq('QUALIFIED-WITH:',$.ws,$.sname,$.ws,$.sname),
         seq(/FROM:|EXCLUDE:/,$.ws,$.sname,$.ws,'=>',$.ws,$.namel,';'),
@@ -49,7 +45,7 @@ module.exports = grammar({
         seq(/ALIAS:|TYPEDEF:/,$.ws,$.sname,$.ws,$.sname),
         seq(/DEFER:|FORGET:|POSTPONE:/,$.ws,$.sname)
     ),
-    
+
     tuple_or_class_defn: $ => choice(
         seq(/TUPLE:|ERROR:/,$.ws,$.sname,$.ws,'<',$.ws,$.sname,$.ws,';'),
         seq(/TUPLE:|ERROR:|BUILTIN:/,$.ws,$.namel,';'),
@@ -75,11 +71,17 @@ module.exports = grammar({
         seq('FUNCTION-ALIAS:',$.ws,$.sname,$.ws,$.sname,$.ws,$.sname,$.ws,'(',$.ws,$.words,')'),
     ),
 
-    _token: $ => choice(
-        $.number,
+    vocab_private: $ => /<PRIVATE|PRIVATE>/,
+
+    expr: $ => prec.left(seq(repeat(seq($.data,$.ws)),$.data)),
+
+    data: $ => choice(
         $.string,
         $.bool,
-        $.word
+        $.symbol,
+        $.number,
+        $.keyword
+        // $.builtin
     ),
 
     string: $ => choice(
@@ -90,6 +92,11 @@ module.exports = grammar({
     ),
 
     bool: $ => /[tf]/,
+
+    symbol: $ => choice(
+        /[\\$]\s+\S+/,
+        /M\\\s+\S+\s+\S+/,
+    ),
 
     number: $ => choice(
         /[+-]?(?:[\d,]*\d)?\.(?:\d([\d,]*\d)?)?(?:[eE][+-]?\d+)?/,
@@ -102,15 +109,19 @@ module.exports = grammar({
         /(?:\-\d([\d,]*\d)?)?\-\d(?:[\d,]*\d)?\/\d(?:[\d,]*\d)?/,
     ),
 
-    vocab_private: $ => /<PRIVATE|PRIVATE>/,
-
-    word: $ => /\S+/,
+    keyword: $ => /(?:deprecated|final|foldable|flushable|inline|recursive)\s/,
 
     sname: $ => /[^"\s](\S)*/,
 
     namel: $ => repeat1(seq($.sname,$.ws)),
 
     ws: $ => /\s+/,
+
+    ews: $ => $.ws, // can't set $ here.
+
+    word: $ => /\S+/,
+
+    words: $ => repeat1(seq($.word,$.ws)),
 
     comment: $ => choice(
         /!\s+.*\n/,

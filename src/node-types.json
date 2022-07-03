@@ -28,21 +28,6 @@
     }
   },
   {
-    "type": "ews",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ws",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "expr",
     "named": true,
     "fields": {},
@@ -55,10 +40,6 @@
           "named": true
         },
         {
-          "type": "keyword",
-          "named": true
-        },
-        {
           "type": "number",
           "named": true
         },
@@ -67,7 +48,7 @@
           "named": true
         },
         {
-          "type": "symbol",
+          "type": "word",
           "named": true
         },
         {
@@ -125,33 +106,6 @@
     "fields": {}
   },
   {
-    "type": "other_syntax_defn",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "namel",
-          "named": true
-        },
-        {
-          "type": "sname",
-          "named": true
-        },
-        {
-          "type": "words",
-          "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -160,11 +114,7 @@
       "required": false,
       "types": [
         {
-          "type": "ews",
-          "named": true
-        },
-        {
-          "type": "expr",
+          "type": "bool",
           "named": true
         },
         {
@@ -172,19 +122,27 @@
           "named": true
         },
         {
-          "type": "other_syntax_defn",
+          "type": "number",
           "named": true
         },
         {
-          "type": "tuple_or_class_defn",
+          "type": "shebang",
           "named": true
         },
         {
-          "type": "vocab_private",
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "word",
           "named": true
         },
         {
           "type": "word_defn",
+          "named": true
+        },
+        {
+          "type": "ws",
           "named": true
         }
       ]
@@ -215,34 +173,6 @@
     "fields": {}
   },
   {
-    "type": "symbol",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "tuple_or_class_defn",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "namel",
-          "named": true
-        },
-        {
-          "type": "sname",
-          "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "word_defn",
     "named": true,
     "fields": {},
@@ -270,25 +200,6 @@
     }
   },
   {
-    "type": "words",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "word",
-          "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "(",
     "named": false
   },
@@ -305,10 +216,6 @@
     "named": false
   },
   {
-    "type": "::?",
-    "named": false
-  },
-  {
     "type": ";",
     "named": false
   },
@@ -321,23 +228,7 @@
     "named": false
   },
   {
-    "type": "ALIEN:",
-    "named": false
-  },
-  {
     "type": "C:",
-    "named": false
-  },
-  {
-    "type": "CONSTANT:",
-    "named": false
-  },
-  {
-    "type": "FUNCTION-ALIAS:",
-    "named": false
-  },
-  {
-    "type": "FUNCTION:",
     "named": false
   },
   {
@@ -349,31 +240,11 @@
     "named": false
   },
   {
-    "type": "HELP:",
-    "named": false
-  },
-  {
     "type": "HOOK:",
     "named": false
   },
   {
     "type": "INSTANCE:",
-    "named": false
-  },
-  {
-    "type": "M::?",
-    "named": false
-  },
-  {
-    "type": "MACRO::?",
-    "named": false
-  },
-  {
-    "type": "MAIN:",
-    "named": false
-  },
-  {
-    "type": "MEMO::?",
     "named": false
   },
   {
@@ -401,26 +272,6 @@
     "named": false
   },
   {
-    "type": "STRUCT:",
-    "named": false
-  },
-  {
-    "type": "SYMBOL:",
-    "named": false
-  },
-  {
-    "type": "SYMBOLS:",
-    "named": false
-  },
-  {
-    "type": "SYNTAX:",
-    "named": false
-  },
-  {
-    "type": "TYPED::?",
-    "named": false
-  },
-  {
     "type": "USING:",
     "named": false
   },
@@ -429,15 +280,11 @@
     "named": true
   },
   {
-    "type": "keyword",
+    "type": "shebang",
     "named": true
   },
   {
     "type": "sname",
-    "named": true
-  },
-  {
-    "type": "vocab_private",
     "named": true
   },
   {
