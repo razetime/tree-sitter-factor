@@ -6,7 +6,8 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(
         optional($.shebang),
-        repeat(seq($._definition,$._ws))
+        optional($._ws),
+        seq(repeat(seq($._definition,$._ws)),optional($._definition))
     ),
 
     shebang: $ => /#!.*\s+/,
