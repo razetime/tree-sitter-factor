@@ -1,5 +1,60 @@
 [
   {
+    "type": "builtin_arrays",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_assocs",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_combinators",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_continuations",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_io",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_kernel",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_math",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_namespaces",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_sequences",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_strings",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_vectors",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "comment",
     "named": true,
     "fields": {}
@@ -18,10 +73,6 @@
         },
         {
           "type": "stack_effect",
-          "named": true
-        },
-        {
-          "type": "ws",
           "named": true
         }
       ]
@@ -50,10 +101,6 @@
         {
           "type": "word",
           "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
         }
       ]
     }
@@ -73,10 +120,6 @@
         {
           "type": "sname",
           "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
         }
       ]
     }
@@ -92,10 +135,6 @@
         {
           "type": "sname",
           "named": true
-        },
-        {
-          "type": "ws",
-          "named": true
         }
       ]
     }
@@ -104,6 +143,29 @@
     "type": "number",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "other_syntax_defn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "namel",
+          "named": true
+        },
+        {
+          "type": "sname",
+          "named": true
+        },
+        {
+          "type": "words",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
@@ -126,6 +188,10 @@
           "named": true
         },
         {
+          "type": "other_syntax_defn",
+          "named": true
+        },
+        {
           "type": "shebang",
           "named": true
         },
@@ -134,15 +200,19 @@
           "named": true
         },
         {
+          "type": "tuple_or_class_defn",
+          "named": true
+        },
+        {
+          "type": "vocab_private",
+          "named": true
+        },
+        {
           "type": "word",
           "named": true
         },
         {
           "type": "word_defn",
-          "named": true
-        },
-        {
-          "type": "ws",
           "named": true
         }
       ]
@@ -154,14 +224,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "effect",
-          "named": true
-        },
-        {
-          "type": "ws",
           "named": true
         }
       ]
@@ -171,6 +237,80 @@
     "type": "string",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "tuple_or_class_defn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "namel",
+          "named": true
+        },
+        {
+          "type": "sname",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "word",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "builtin_arrays",
+          "named": true
+        },
+        {
+          "type": "builtin_assocs",
+          "named": true
+        },
+        {
+          "type": "builtin_combinators",
+          "named": true
+        },
+        {
+          "type": "builtin_continuations",
+          "named": true
+        },
+        {
+          "type": "builtin_io",
+          "named": true
+        },
+        {
+          "type": "builtin_kernel",
+          "named": true
+        },
+        {
+          "type": "builtin_math",
+          "named": true
+        },
+        {
+          "type": "builtin_namespaces",
+          "named": true
+        },
+        {
+          "type": "builtin_sequences",
+          "named": true
+        },
+        {
+          "type": "builtin_strings",
+          "named": true
+        },
+        {
+          "type": "builtin_vectors",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "word_defn",
@@ -191,9 +331,20 @@
         {
           "type": "stack_effect",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "words",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
-          "type": "ws",
+          "type": "sname",
           "named": true
         }
       ]
@@ -204,11 +355,315 @@
     "named": false
   },
   {
+    "type": "(all-integers?)",
+    "named": false
+  },
+  {
+    "type": "(clone)",
+    "named": false
+  },
+  {
+    "type": "(each-integer)",
+    "named": false
+  },
+  {
+    "type": "(each-stream-block)",
+    "named": false
+  },
+  {
+    "type": "(each-stream-block-slice)",
+    "named": false
+  },
+  {
+    "type": "(find-integer)",
+    "named": false
+  },
+  {
+    "type": "(stream-contents-by-block)",
+    "named": false
+  },
+  {
+    "type": "(stream-contents-by-element)",
+    "named": false
+  },
+  {
+    "type": "(stream-contents-by-length)",
+    "named": false
+  },
+  {
+    "type": "(stream-contents-by-length-or-block)",
+    "named": false
+  },
+  {
     "type": ")",
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "+@",
+    "named": false
+  },
+  {
+    "type": "+byte+",
+    "named": false
+  },
+  {
+    "type": "+character+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
     "type": "--",
+    "named": false
+  },
+  {
+    "type": "-rot",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/f",
+    "named": false
+  },
+  {
+    "type": "/i",
+    "named": false
+  },
+  {
+    "type": "/mod",
+    "named": false
+  },
+  {
+    "type": "1array",
+    "named": false
+  },
+  {
+    "type": "1sequence",
+    "named": false
+  },
+  {
+    "type": "1string",
+    "named": false
+  },
+  {
+    "type": "1vector",
+    "named": false
+  },
+  {
+    "type": "2/",
+    "named": false
+  },
+  {
+    "type": "2^",
+    "named": false
+  },
+  {
+    "type": "2all?",
+    "named": false
+  },
+  {
+    "type": "2array",
+    "named": false
+  },
+  {
+    "type": "2bi",
+    "named": false
+  },
+  {
+    "type": "2bi*",
+    "named": false
+  },
+  {
+    "type": "2bi@",
+    "named": false
+  },
+  {
+    "type": "2cache",
+    "named": false
+  },
+  {
+    "type": "2cleave",
+    "named": false
+  },
+  {
+    "type": "2cleave>quot",
+    "named": false
+  },
+  {
+    "type": "2curry",
+    "named": false
+  },
+  {
+    "type": "2dip",
+    "named": false
+  },
+  {
+    "type": "2drop",
+    "named": false
+  },
+  {
+    "type": "2dup",
+    "named": false
+  },
+  {
+    "type": "2each",
+    "named": false
+  },
+  {
+    "type": "2keep",
+    "named": false
+  },
+  {
+    "type": "2map",
+    "named": false
+  },
+  {
+    "type": "2map-as",
+    "named": false
+  },
+  {
+    "type": "2map-reduce",
+    "named": false
+  },
+  {
+    "type": "2nip",
+    "named": false
+  },
+  {
+    "type": "2over",
+    "named": false
+  },
+  {
+    "type": "2reduce",
+    "named": false
+  },
+  {
+    "type": "2selector",
+    "named": false
+  },
+  {
+    "type": "2sequence",
+    "named": false
+  },
+  {
+    "type": "2tri",
+    "named": false
+  },
+  {
+    "type": "2tri*",
+    "named": false
+  },
+  {
+    "type": "2tri@",
+    "named": false
+  },
+  {
+    "type": "3append",
+    "named": false
+  },
+  {
+    "type": "3append-as",
+    "named": false
+  },
+  {
+    "type": "3array",
+    "named": false
+  },
+  {
+    "type": "3bi",
+    "named": false
+  },
+  {
+    "type": "3cleave",
+    "named": false
+  },
+  {
+    "type": "3cleave>quot",
+    "named": false
+  },
+  {
+    "type": "3curry",
+    "named": false
+  },
+  {
+    "type": "3dip",
+    "named": false
+  },
+  {
+    "type": "3drop",
+    "named": false
+  },
+  {
+    "type": "3dup",
+    "named": false
+  },
+  {
+    "type": "3each",
+    "named": false
+  },
+  {
+    "type": "3keep",
+    "named": false
+  },
+  {
+    "type": "3map",
+    "named": false
+  },
+  {
+    "type": "3map-as",
+    "named": false
+  },
+  {
+    "type": "3sequence",
+    "named": false
+  },
+  {
+    "type": "3tri",
+    "named": false
+  },
+  {
+    "type": "4array",
+    "named": false
+  },
+  {
+    "type": "4cleave",
+    "named": false
+  },
+  {
+    "type": "4cleave>quot",
+    "named": false
+  },
+  {
+    "type": "4dip",
+    "named": false
+  },
+  {
+    "type": "4drop",
+    "named": false
+  },
+  {
+    "type": "4dup",
+    "named": false
+  },
+  {
+    "type": "4keep",
+    "named": false
+  },
+  {
+    "type": "4sequence",
     "named": false
   },
   {
@@ -224,11 +679,175 @@
     "named": false
   },
   {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "<array>",
+    "named": false
+  },
+  {
+    "type": "<condition>",
+    "named": false
+  },
+  {
+    "type": "<continuation>",
+    "named": false
+  },
+  {
+    "type": "<enum>",
+    "named": false
+  },
+  {
+    "type": "<fp-nan>",
+    "named": false
+  },
+  {
+    "type": "<repetition>",
+    "named": false
+  },
+  {
+    "type": "<restart>",
+    "named": false
+  },
+  {
+    "type": "<reversed>",
+    "named": false
+  },
+  {
+    "type": "<slice>",
+    "named": false
+  },
+  {
+    "type": "<string>",
+    "named": false
+  },
+  {
+    "type": "<vector>",
+    "named": false
+  },
+  {
+    "type": "<wrapper>",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
     "type": "=>",
     "named": false
   },
   {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">alist",
+    "named": false
+  },
+  {
+    "type": ">array",
+    "named": false
+  },
+  {
+    "type": ">bignum",
+    "named": false
+  },
+  {
+    "type": ">boolean",
+    "named": false
+  },
+  {
+    "type": ">fixnum",
+    "named": false
+  },
+  {
+    "type": ">float",
+    "named": false
+  },
+  {
+    "type": ">integer",
+    "named": false
+  },
+  {
+    "type": ">string",
+    "named": false
+  },
+  {
+    "type": ">vector",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "?1+",
+    "named": false
+  },
+  {
+    "type": "?at",
+    "named": false
+  },
+  {
+    "type": "?execute",
+    "named": false
+  },
+  {
+    "type": "?first",
+    "named": false
+  },
+  {
+    "type": "?if",
+    "named": false
+  },
+  {
+    "type": "?last",
+    "named": false
+  },
+  {
+    "type": "?nth",
+    "named": false
+  },
+  {
+    "type": "?of",
+    "named": false
+  },
+  {
+    "type": "?push",
+    "named": false
+  },
+  {
+    "type": "?second",
+    "named": false
+  },
+  {
+    "type": "?set-nth",
+    "named": false
+  },
+  {
+    "type": "ALIEN:",
+    "named": false
+  },
+  {
     "type": "C:",
+    "named": false
+  },
+  {
+    "type": "CONSTANT:",
+    "named": false
+  },
+  {
+    "type": "FUNCTION-ALIAS:",
+    "named": false
+  },
+  {
+    "type": "FUNCTION:",
     "named": false
   },
   {
@@ -240,11 +859,19 @@
     "named": false
   },
   {
+    "type": "HELP:",
+    "named": false
+  },
+  {
     "type": "HOOK:",
     "named": false
   },
   {
     "type": "INSTANCE:",
+    "named": false
+  },
+  {
+    "type": "MAIN:",
     "named": false
   },
   {
@@ -272,7 +899,327 @@
     "named": false
   },
   {
+    "type": "STRUCT:",
+    "named": false
+  },
+  {
+    "type": "SYMBOL:",
+    "named": false
+  },
+  {
+    "type": "SYMBOLS:",
+    "named": false
+  },
+  {
+    "type": "SYNTAX:",
+    "named": false
+  },
+  {
     "type": "USING:",
+    "named": false
+  },
+  {
+    "type": "abs",
+    "named": false
+  },
+  {
+    "type": "accumulate",
+    "named": false
+  },
+  {
+    "type": "accumulate!",
+    "named": false
+  },
+  {
+    "type": "accumulate-as",
+    "named": false
+  },
+  {
+    "type": "align",
+    "named": false
+  },
+  {
+    "type": "alist>quot",
+    "named": false
+  },
+  {
+    "type": "all-integers?",
+    "named": false
+  },
+  {
+    "type": "all?",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "any?",
+    "named": false
+  },
+  {
+    "type": "append",
+    "named": false
+  },
+  {
+    "type": "append!",
+    "named": false
+  },
+  {
+    "type": "append-as",
+    "named": false
+  },
+  {
+    "type": "array",
+    "named": false
+  },
+  {
+    "type": "array?",
+    "named": false
+  },
+  {
+    "type": "assert",
+    "named": false
+  },
+  {
+    "type": "assert-sequence",
+    "named": false
+  },
+  {
+    "type": "assert-sequence=",
+    "named": false
+  },
+  {
+    "type": "assert-sequence?",
+    "named": false
+  },
+  {
+    "type": "assert=",
+    "named": false
+  },
+  {
+    "type": "assert?",
+    "named": false
+  },
+  {
+    "type": "assoc",
+    "named": false
+  },
+  {
+    "type": "assoc-all?",
+    "named": false
+  },
+  {
+    "type": "assoc-any?",
+    "named": false
+  },
+  {
+    "type": "assoc-clone-like",
+    "named": false
+  },
+  {
+    "type": "assoc-combine",
+    "named": false
+  },
+  {
+    "type": "assoc-diff",
+    "named": false
+  },
+  {
+    "type": "assoc-diff!",
+    "named": false
+  },
+  {
+    "type": "assoc-differ",
+    "named": false
+  },
+  {
+    "type": "assoc-each",
+    "named": false
+  },
+  {
+    "type": "assoc-empty?",
+    "named": false
+  },
+  {
+    "type": "assoc-filter",
+    "named": false
+  },
+  {
+    "type": "assoc-filter!",
+    "named": false
+  },
+  {
+    "type": "assoc-filter-as",
+    "named": false
+  },
+  {
+    "type": "assoc-find",
+    "named": false
+  },
+  {
+    "type": "assoc-hashcode",
+    "named": false
+  },
+  {
+    "type": "assoc-intersect",
+    "named": false
+  },
+  {
+    "type": "assoc-like",
+    "named": false
+  },
+  {
+    "type": "assoc-map",
+    "named": false
+  },
+  {
+    "type": "assoc-map-as",
+    "named": false
+  },
+  {
+    "type": "assoc-partition",
+    "named": false
+  },
+  {
+    "type": "assoc-refine",
+    "named": false
+  },
+  {
+    "type": "assoc-size",
+    "named": false
+  },
+  {
+    "type": "assoc-stack",
+    "named": false
+  },
+  {
+    "type": "assoc-subset?",
+    "named": false
+  },
+  {
+    "type": "assoc-union",
+    "named": false
+  },
+  {
+    "type": "assoc-union!",
+    "named": false
+  },
+  {
+    "type": "assoc=",
+    "named": false
+  },
+  {
+    "type": "assoc>map",
+    "named": false
+  },
+  {
+    "type": "assoc?",
+    "named": false
+  },
+  {
+    "type": "at",
+    "named": false
+  },
+  {
+    "type": "at*",
+    "named": false
+  },
+  {
+    "type": "at+",
+    "named": false
+  },
+  {
+    "type": "attempt-all",
+    "named": false
+  },
+  {
+    "type": "attempt-all-error",
+    "named": false
+  },
+  {
+    "type": "attempt-all-error?",
+    "named": false
+  },
+  {
+    "type": "bad-seek-type",
+    "named": false
+  },
+  {
+    "type": "bad-seek-type?",
+    "named": false
+  },
+  {
+    "type": "bi",
+    "named": false
+  },
+  {
+    "type": "bi*",
+    "named": false
+  },
+  {
+    "type": "bi-curry",
+    "named": false
+  },
+  {
+    "type": "bi-curry*",
+    "named": false
+  },
+  {
+    "type": "bi-curry@",
+    "named": false
+  },
+  {
+    "type": "bi@",
+    "named": false
+  },
+  {
+    "type": "bignum",
+    "named": false
+  },
+  {
+    "type": "bignum?",
+    "named": false
+  },
+  {
+    "type": "binary-reduce",
+    "named": false
+  },
+  {
+    "type": "bit?",
+    "named": false
+  },
+  {
+    "type": "bitand",
+    "named": false
+  },
+  {
+    "type": "bitnot",
+    "named": false
+  },
+  {
+    "type": "bitor",
+    "named": false
+  },
+  {
+    "type": "bits>double",
+    "named": false
+  },
+  {
+    "type": "bits>float",
+    "named": false
+  },
+  {
+    "type": "bitxor",
+    "named": false
+  },
+  {
+    "type": "bl",
+    "named": false
+  },
+  {
+    "type": "boa",
     "named": false
   },
   {
@@ -280,19 +1227,2107 @@
     "named": true
   },
   {
+    "type": "boolean",
+    "named": false
+  },
+  {
+    "type": "boolean?",
+    "named": false
+  },
+  {
+    "type": "both?",
+    "named": false
+  },
+  {
+    "type": "bounds-check",
+    "named": false
+  },
+  {
+    "type": "bounds-check?",
+    "named": false
+  },
+  {
+    "type": "bounds-error",
+    "named": false
+  },
+  {
+    "type": "bounds-error?",
+    "named": false
+  },
+  {
+    "type": "build",
+    "named": false
+  },
+  {
+    "type": "but-last",
+    "named": false
+  },
+  {
+    "type": "but-last-slice",
+    "named": false
+  },
+  {
+    "type": "cache",
+    "named": false
+  },
+  {
+    "type": "call",
+    "named": false
+  },
+  {
+    "type": "call-effect",
+    "named": false
+  },
+  {
+    "type": "callback-error-hook",
+    "named": false
+  },
+  {
+    "type": "callcc0",
+    "named": false
+  },
+  {
+    "type": "callcc1",
+    "named": false
+  },
+  {
+    "type": "callstack",
+    "named": false
+  },
+  {
+    "type": "callstack>array",
+    "named": false
+  },
+  {
+    "type": "callstack?",
+    "named": false
+  },
+  {
+    "type": "cartesian-each",
+    "named": false
+  },
+  {
+    "type": "cartesian-map",
+    "named": false
+  },
+  {
+    "type": "cartesian-product",
+    "named": false
+  },
+  {
+    "type": "case",
+    "named": false
+  },
+  {
+    "type": "case-find",
+    "named": false
+  },
+  {
+    "type": "case>quot",
+    "named": false
+  },
+  {
+    "type": "change",
+    "named": false
+  },
+  {
+    "type": "change-at",
+    "named": false
+  },
+  {
+    "type": "change-global",
+    "named": false
+  },
+  {
+    "type": "change-nth",
+    "named": false
+  },
+  {
+    "type": "check-slice",
+    "named": false
+  },
+  {
+    "type": "check-slice-error",
+    "named": false
+  },
+  {
+    "type": "cleanup",
+    "named": false
+  },
+  {
+    "type": "clear",
+    "named": false
+  },
+  {
+    "type": "clear-assoc",
+    "named": false
+  },
+  {
+    "type": "cleave",
+    "named": false
+  },
+  {
+    "type": "cleave>quot",
+    "named": false
+  },
+  {
+    "type": "clone",
+    "named": false
+  },
+  {
+    "type": "clone-like",
+    "named": false
+  },
+  {
+    "type": "collapse-slice",
+    "named": false
+  },
+  {
+    "type": "collector",
+    "named": false
+  },
+  {
+    "type": "collector-for",
+    "named": false
+  },
+  {
+    "type": "complex",
+    "named": false
+  },
+  {
+    "type": "complex?",
+    "named": false
+  },
+  {
+    "type": "compose",
+    "named": false
+  },
+  {
+    "type": "compose?",
+    "named": false
+  },
+  {
+    "type": "compute-restarts",
+    "named": false
+  },
+  {
+    "type": "concat",
+    "named": false
+  },
+  {
+    "type": "concat-as",
+    "named": false
+  },
+  {
+    "type": "cond",
+    "named": false
+  },
+  {
+    "type": "cond>quot",
+    "named": false
+  },
+  {
+    "type": "condition",
+    "named": false
+  },
+  {
+    "type": "condition?",
+    "named": false
+  },
+  {
+    "type": "contents",
+    "named": false
+  },
+  {
+    "type": "continuation",
+    "named": false
+  },
+  {
+    "type": "continuation?",
+    "named": false
+  },
+  {
+    "type": "continue",
+    "named": false
+  },
+  {
+    "type": "continue-restart",
+    "named": false
+  },
+  {
+    "type": "continue-with",
+    "named": false
+  },
+  {
+    "type": "copy",
+    "named": false
+  },
+  {
+    "type": "count",
+    "named": false
+  },
+  {
+    "type": "counter",
+    "named": false
+  },
+  {
+    "type": "current-continuation",
+    "named": false
+  },
+  {
+    "type": "curry",
+    "named": false
+  },
+  {
+    "type": "curry?",
+    "named": false
+  },
+  {
+    "type": "cut",
+    "named": false
+  },
+  {
+    "type": "cut*",
+    "named": false
+  },
+  {
+    "type": "cut-slice",
+    "named": false
+  },
+  {
+    "type": "datastack",
+    "named": false
+  },
+  {
+    "type": "dec",
+    "named": false
+  },
+  {
+    "type": "deep-spread>quot",
+    "named": false
+  },
+  {
+    "type": "delete-all",
+    "named": false
+  },
+  {
+    "type": "delete-at",
+    "named": false
+  },
+  {
+    "type": "delete-at*",
+    "named": false
+  },
+  {
+    "type": "delete-slice",
+    "named": false
+  },
+  {
+    "type": "denominator",
+    "named": false
+  },
+  {
+    "type": "die",
+    "named": false
+  },
+  {
+    "type": "dip",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "double>bits",
+    "named": false
+  },
+  {
+    "type": "drop",
+    "named": false
+  },
+  {
+    "type": "drop-prefix",
+    "named": false
+  },
+  {
+    "type": "dup",
+    "named": false
+  },
+  {
+    "type": "dupd",
+    "named": false
+  },
+  {
+    "type": "each",
+    "named": false
+  },
+  {
+    "type": "each-block",
+    "named": false
+  },
+  {
+    "type": "each-block-size",
+    "named": false
+  },
+  {
+    "type": "each-block-slice",
+    "named": false
+  },
+  {
+    "type": "each-from",
+    "named": false
+  },
+  {
+    "type": "each-index",
+    "named": false
+  },
+  {
+    "type": "each-integer",
+    "named": false
+  },
+  {
+    "type": "each-line",
+    "named": false
+  },
+  {
+    "type": "each-morsel",
+    "named": false
+  },
+  {
+    "type": "each-stream-block",
+    "named": false
+  },
+  {
+    "type": "each-stream-block-slice",
+    "named": false
+  },
+  {
+    "type": "each-stream-line",
+    "named": false
+  },
+  {
+    "type": "either?",
+    "named": false
+  },
+  {
+    "type": "empty?",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
+    "type": "enum?",
+    "named": false
+  },
+  {
+    "type": "eq?",
+    "named": false
+  },
+  {
+    "type": "equal?",
+    "named": false
+  },
+  {
+    "type": "error",
+    "named": false
+  },
+  {
+    "type": "error-continuation",
+    "named": false
+  },
+  {
+    "type": "error-in-thread",
+    "named": false
+  },
+  {
+    "type": "error-stream",
+    "named": false
+  },
+  {
+    "type": "error-thread",
+    "named": false
+  },
+  {
+    "type": "even?",
+    "named": false
+  },
+  {
+    "type": "exchange",
+    "named": false
+  },
+  {
+    "type": "execute",
+    "named": false
+  },
+  {
+    "type": "execute-effect",
+    "named": false
+  },
+  {
+    "type": "extract-keys",
+    "named": false
+  },
+  {
+    "type": "filter",
+    "named": false
+  },
+  {
+    "type": "filter!",
+    "named": false
+  },
+  {
+    "type": "filter-as",
+    "named": false
+  },
+  {
+    "type": "find",
+    "named": false
+  },
+  {
+    "type": "find-from",
+    "named": false
+  },
+  {
+    "type": "find-index",
+    "named": false
+  },
+  {
+    "type": "find-index-from",
+    "named": false
+  },
+  {
+    "type": "find-integer",
+    "named": false
+  },
+  {
+    "type": "find-last",
+    "named": false
+  },
+  {
+    "type": "find-last-from",
+    "named": false
+  },
+  {
+    "type": "find-last-integer",
+    "named": false
+  },
+  {
+    "type": "first",
+    "named": false
+  },
+  {
+    "type": "first2",
+    "named": false
+  },
+  {
+    "type": "first3",
+    "named": false
+  },
+  {
+    "type": "first4",
+    "named": false
+  },
+  {
+    "type": "fixnum",
+    "named": false
+  },
+  {
+    "type": "fixnum?",
+    "named": false
+  },
+  {
+    "type": "flip",
+    "named": false
+  },
+  {
+    "type": "float",
+    "named": false
+  },
+  {
+    "type": "float>bits",
+    "named": false
+  },
+  {
+    "type": "float?",
+    "named": false
+  },
+  {
+    "type": "flush",
+    "named": false
+  },
+  {
+    "type": "follow",
+    "named": false
+  },
+  {
+    "type": "fourth",
+    "named": false
+  },
+  {
+    "type": "fp-bitwise=",
+    "named": false
+  },
+  {
+    "type": "fp-infinity?",
+    "named": false
+  },
+  {
+    "type": "fp-nan-payload",
+    "named": false
+  },
+  {
+    "type": "fp-nan?",
+    "named": false
+  },
+  {
+    "type": "fp-qnan?",
+    "named": false
+  },
+  {
+    "type": "fp-sign",
+    "named": false
+  },
+  {
+    "type": "fp-snan?",
+    "named": false
+  },
+  {
+    "type": "fp-special?",
+    "named": false
+  },
+  {
+    "type": "get",
+    "named": false
+  },
+  {
+    "type": "get-global",
+    "named": false
+  },
+  {
+    "type": "global",
+    "named": false
+  },
+  {
+    "type": "glue",
+    "named": false
+  },
+  {
+    "type": "halves",
+    "named": false
+  },
+  {
+    "type": "harvest",
+    "named": false
+  },
+  {
+    "type": "hashcode",
+    "named": false
+  },
+  {
+    "type": "hashcode*",
+    "named": false
+  },
+  {
+    "type": "head",
+    "named": false
+  },
+  {
+    "type": "head*",
+    "named": false
+  },
+  {
+    "type": "head-slice",
+    "named": false
+  },
+  {
+    "type": "head-slice*",
+    "named": false
+  },
+  {
+    "type": "head?",
+    "named": false
+  },
+  {
+    "type": "identity-hashcode",
+    "named": false
+  },
+  {
+    "type": "identity-tuple",
+    "named": false
+  },
+  {
+    "type": "identity-tuple?",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "if*",
+    "named": false
+  },
+  {
+    "type": "if-empty",
+    "named": false
+  },
+  {
+    "type": "if-zero",
+    "named": false
+  },
+  {
+    "type": "ifcc",
+    "named": false
+  },
+  {
+    "type": "ignore-errors",
+    "named": false
+  },
+  {
+    "type": "imaginary-part",
+    "named": false
+  },
+  {
+    "type": "immutable",
+    "named": false
+  },
+  {
+    "type": "immutable-sequence",
+    "named": false
+  },
+  {
+    "type": "immutable-sequence?",
+    "named": false
+  },
+  {
+    "type": "immutable?",
+    "named": false
+  },
+  {
+    "type": "in-callback?",
+    "named": false
+  },
+  {
+    "type": "inc",
+    "named": false
+  },
+  {
+    "type": "inc-at",
+    "named": false
+  },
+  {
+    "type": "index",
+    "named": false
+  },
+  {
+    "type": "index-from",
+    "named": false
+  },
+  {
+    "type": "indices",
+    "named": false
+  },
+  {
+    "type": "infimum",
+    "named": false
+  },
+  {
+    "type": "infimum-by",
+    "named": false
+  },
+  {
+    "type": "init-namespaces",
+    "named": false
+  },
+  {
+    "type": "initialize",
+    "named": false
+  },
+  {
+    "type": "input-stream",
+    "named": false
+  },
+  {
+    "type": "input-stream?",
+    "named": false
+  },
+  {
+    "type": "insert-nth",
+    "named": false
+  },
+  {
+    "type": "integer",
+    "named": false
+  },
+  {
+    "type": "integer>fixnum",
+    "named": false
+  },
+  {
+    "type": "integer>fixnum-strict",
+    "named": false
+  },
+  {
+    "type": "integer?",
+    "named": false
+  },
+  {
+    "type": "interleave",
+    "named": false
+  },
+  {
+    "type": "invalid-read-buffer",
+    "named": false
+  },
+  {
+    "type": "invalid-read-buffer?",
+    "named": false
+  },
+  {
+    "type": "iota",
+    "named": false
+  },
+  {
+    "type": "iota-tuple",
+    "named": false
+  },
+  {
+    "type": "iota-tuple?",
+    "named": false
+  },
+  {
+    "type": "is-global",
+    "named": false
+  },
+  {
+    "type": "join",
+    "named": false
+  },
+  {
+    "type": "join-as",
+    "named": false
+  },
+  {
+    "type": "keep",
+    "named": false
+  },
+  {
+    "type": "key?",
+    "named": false
+  },
+  {
+    "type": "keys",
+    "named": false
+  },
+  {
+    "type": "last",
+    "named": false
+  },
+  {
+    "type": "last-index",
+    "named": false
+  },
+  {
+    "type": "last-index-from",
+    "named": false
+  },
+  {
+    "type": "length",
+    "named": false
+  },
+  {
+    "type": "lengthen",
+    "named": false
+  },
+  {
+    "type": "like",
+    "named": false
+  },
+  {
+    "type": "linear-case-quot",
+    "named": false
+  },
+  {
+    "type": "lines",
+    "named": false
+  },
+  {
+    "type": "log2",
+    "named": false
+  },
+  {
+    "type": "log2-expects-positive",
+    "named": false
+  },
+  {
+    "type": "log2-expects-positive?",
+    "named": false
+  },
+  {
+    "type": "longer",
+    "named": false
+  },
+  {
+    "type": "longer?",
+    "named": false
+  },
+  {
+    "type": "longest",
+    "named": false
+  },
+  {
+    "type": "loop",
+    "named": false
+  },
+  {
+    "type": "make-assoc",
+    "named": false
+  },
+  {
+    "type": "map",
+    "named": false
+  },
+  {
+    "type": "map!",
+    "named": false
+  },
+  {
+    "type": "map-as",
+    "named": false
+  },
+  {
+    "type": "map-find",
+    "named": false
+  },
+  {
+    "type": "map-find-last",
+    "named": false
+  },
+  {
+    "type": "map-index",
+    "named": false
+  },
+  {
+    "type": "map-integers",
+    "named": false
+  },
+  {
+    "type": "map-reduce",
+    "named": false
+  },
+  {
+    "type": "map-sum",
+    "named": false
+  },
+  {
+    "type": "map>assoc",
+    "named": false
+  },
+  {
+    "type": "max-length",
+    "named": false
+  },
+  {
+    "type": "maybe-set-at",
+    "named": false
+  },
+  {
+    "type": "member-eq?",
+    "named": false
+  },
+  {
+    "type": "member?",
+    "named": false
+  },
+  {
+    "type": "midpoint@",
+    "named": false
+  },
+  {
+    "type": "min-length",
+    "named": false
+  },
+  {
+    "type": "mismatch",
+    "named": false
+  },
+  {
+    "type": "mod",
+    "named": false
+  },
+  {
+    "type": "most",
+    "named": false
+  },
+  {
+    "type": "move",
+    "named": false
+  },
+  {
+    "type": "namespace",
+    "named": false
+  },
+  {
+    "type": "namestack",
+    "named": false
+  },
+  {
+    "type": "neg",
+    "named": false
+  },
+  {
+    "type": "neg?",
+    "named": false
+  },
+  {
+    "type": "new",
+    "named": false
+  },
+  {
+    "type": "new-assoc",
+    "named": false
+  },
+  {
+    "type": "new-like",
+    "named": false
+  },
+  {
+    "type": "new-resizable",
+    "named": false
+  },
+  {
+    "type": "new-sequence",
+    "named": false
+  },
+  {
+    "type": "next-float",
+    "named": false
+  },
+  {
+    "type": "next-power-of-2",
+    "named": false
+  },
+  {
+    "type": "nip",
+    "named": false
+  },
+  {
+    "type": "nl",
+    "named": false
+  },
+  {
+    "type": "no-case",
+    "named": false
+  },
+  {
+    "type": "no-case?",
+    "named": false
+  },
+  {
+    "type": "no-cond",
+    "named": false
+  },
+  {
+    "type": "no-cond?",
+    "named": false
+  },
+  {
+    "type": "non-negative-integer-expected",
+    "named": false
+  },
+  {
+    "type": "non-negative-integer-expected?",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "nth",
+    "named": false
+  },
+  {
+    "type": "nths",
+    "named": false
+  },
+  {
+    "type": "null",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": false
+  },
+  {
+    "type": "number=",
+    "named": false
+  },
+  {
+    "type": "number?",
+    "named": false
+  },
+  {
+    "type": "numerator",
+    "named": false
+  },
+  {
+    "type": "object",
+    "named": false
+  },
+  {
+    "type": "odd?",
+    "named": false
+  },
+  {
+    "type": "of",
+    "named": false
+  },
+  {
+    "type": "off",
+    "named": false
+  },
+  {
+    "type": "on",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "original-error",
+    "named": false
+  },
+  {
+    "type": "out-of-fixnum-range",
+    "named": false
+  },
+  {
+    "type": "out-of-fixnum-range?",
+    "named": false
+  },
+  {
+    "type": "output-stream",
+    "named": false
+  },
+  {
+    "type": "output-stream?",
+    "named": false
+  },
+  {
+    "type": "over",
+    "named": false
+  },
+  {
+    "type": "pad-head",
+    "named": false
+  },
+  {
+    "type": "pad-tail",
+    "named": false
+  },
+  {
+    "type": "padding",
+    "named": false
+  },
+  {
+    "type": "pair",
+    "named": false
+  },
+  {
+    "type": "pair?",
+    "named": false
+  },
+  {
+    "type": "partition",
+    "named": false
+  },
+  {
+    "type": "pick",
+    "named": false
+  },
+  {
+    "type": "pop",
+    "named": false
+  },
+  {
+    "type": "pop*",
+    "named": false
+  },
+  {
+    "type": "power-of-2?",
+    "named": false
+  },
+  {
+    "type": "prefix",
+    "named": false
+  },
+  {
+    "type": "prepend",
+    "named": false
+  },
+  {
+    "type": "prepend-as",
+    "named": false
+  },
+  {
+    "type": "prepose",
+    "named": false
+  },
+  {
+    "type": "prev-float",
+    "named": false
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "produce",
+    "named": false
+  },
+  {
+    "type": "produce-as",
+    "named": false
+  },
+  {
+    "type": "product",
+    "named": false
+  },
+  {
+    "type": "push",
+    "named": false
+  },
+  {
+    "type": "push-all",
+    "named": false
+  },
+  {
+    "type": "push-at",
+    "named": false
+  },
+  {
+    "type": "push-either",
+    "named": false
+  },
+  {
+    "type": "push-if",
+    "named": false
+  },
+  {
+    "type": "ratio",
+    "named": false
+  },
+  {
+    "type": "ratio?",
+    "named": false
+  },
+  {
+    "type": "rational",
+    "named": false
+  },
+  {
+    "type": "rational?",
+    "named": false
+  },
+  {
+    "type": "read",
+    "named": false
+  },
+  {
+    "type": "read-into",
+    "named": false
+  },
+  {
+    "type": "read-partial",
+    "named": false
+  },
+  {
+    "type": "read-partial-into",
+    "named": false
+  },
+  {
+    "type": "read-until",
+    "named": false
+  },
+  {
+    "type": "read1",
+    "named": false
+  },
+  {
+    "type": "readln",
+    "named": false
+  },
+  {
+    "type": "real",
+    "named": false
+  },
+  {
+    "type": "real-part",
+    "named": false
+  },
+  {
+    "type": "real?",
+    "named": false
+  },
+  {
+    "type": "recip",
+    "named": false
+  },
+  {
+    "type": "recover",
+    "named": false
+  },
+  {
+    "type": "recursive-hashcode",
+    "named": false
+  },
+  {
+    "type": "reduce",
+    "named": false
+  },
+  {
+    "type": "reduce-index",
+    "named": false
+  },
+  {
+    "type": "rem",
+    "named": false
+  },
+  {
+    "type": "remove",
+    "named": false
+  },
+  {
+    "type": "remove!",
+    "named": false
+  },
+  {
+    "type": "remove-eq",
+    "named": false
+  },
+  {
+    "type": "remove-eq!",
+    "named": false
+  },
+  {
+    "type": "remove-nth",
+    "named": false
+  },
+  {
+    "type": "remove-nth!",
+    "named": false
+  },
+  {
+    "type": "rename-at",
+    "named": false
+  },
+  {
+    "type": "repetition",
+    "named": false
+  },
+  {
+    "type": "repetition?",
+    "named": false
+  },
+  {
+    "type": "replace-slice",
+    "named": false
+  },
+  {
+    "type": "replicate",
+    "named": false
+  },
+  {
+    "type": "replicate-as",
+    "named": false
+  },
+  {
+    "type": "resize-array",
+    "named": false
+  },
+  {
+    "type": "resize-string",
+    "named": false
+  },
+  {
+    "type": "rest",
+    "named": false
+  },
+  {
+    "type": "rest-slice",
+    "named": false
+  },
+  {
+    "type": "restart",
+    "named": false
+  },
+  {
+    "type": "restart?",
+    "named": false
+  },
+  {
+    "type": "restarts",
+    "named": false
+  },
+  {
+    "type": "retainstack",
+    "named": false
+  },
+  {
+    "type": "rethrow",
+    "named": false
+  },
+  {
+    "type": "rethrow-restarts",
+    "named": false
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": "return-continuation",
+    "named": false
+  },
+  {
+    "type": "reverse",
+    "named": false
+  },
+  {
+    "type": "reverse!",
+    "named": false
+  },
+  {
+    "type": "reversed",
+    "named": false
+  },
+  {
+    "type": "reversed?",
+    "named": false
+  },
+  {
+    "type": "rot",
+    "named": false
+  },
+  {
+    "type": "same?",
+    "named": false
+  },
+  {
+    "type": "second",
+    "named": false
+  },
+  {
+    "type": "seek-absolute",
+    "named": false
+  },
+  {
+    "type": "seek-absolute?",
+    "named": false
+  },
+  {
+    "type": "seek-end",
+    "named": false
+  },
+  {
+    "type": "seek-end?",
+    "named": false
+  },
+  {
+    "type": "seek-input",
+    "named": false
+  },
+  {
+    "type": "seek-output",
+    "named": false
+  },
+  {
+    "type": "seek-relative",
+    "named": false
+  },
+  {
+    "type": "seek-relative?",
+    "named": false
+  },
+  {
+    "type": "selector",
+    "named": false
+  },
+  {
+    "type": "selector-for",
+    "named": false
+  },
+  {
+    "type": "sequence",
+    "named": false
+  },
+  {
+    "type": "sequence-hashcode",
+    "named": false
+  },
+  {
+    "type": "sequence=",
+    "named": false
+  },
+  {
+    "type": "sequence?",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
+    "type": "set-at",
+    "named": false
+  },
+  {
+    "type": "set-first",
+    "named": false
+  },
+  {
+    "type": "set-fourth",
+    "named": false
+  },
+  {
+    "type": "set-global",
+    "named": false
+  },
+  {
+    "type": "set-last",
+    "named": false
+  },
+  {
+    "type": "set-length",
+    "named": false
+  },
+  {
+    "type": "set-namestack",
+    "named": false
+  },
+  {
+    "type": "set-nth",
+    "named": false
+  },
+  {
+    "type": "set-second",
+    "named": false
+  },
+  {
+    "type": "set-third",
+    "named": false
+  },
+  {
+    "type": "sgn",
+    "named": false
+  },
+  {
+    "type": "shallow-spread>quot",
+    "named": false
+  },
+  {
     "type": "shebang",
     "named": true
+  },
+  {
+    "type": "shift",
+    "named": false
+  },
+  {
+    "type": "short",
+    "named": false
+  },
+  {
+    "type": "shorten",
+    "named": false
+  },
+  {
+    "type": "shorter",
+    "named": false
+  },
+  {
+    "type": "shorter?",
+    "named": false
+  },
+  {
+    "type": "shortest",
+    "named": false
+  },
+  {
+    "type": "sift",
+    "named": false
+  },
+  {
+    "type": "sift-keys",
+    "named": false
+  },
+  {
+    "type": "sift-values",
+    "named": false
+  },
+  {
+    "type": "slice",
+    "named": false
+  },
+  {
+    "type": "slice-error",
+    "named": false
+  },
+  {
+    "type": "slice-error?",
+    "named": false
+  },
+  {
+    "type": "slice?",
+    "named": false
   },
   {
     "type": "sname",
     "named": true
   },
   {
-    "type": "word",
+    "type": "snip",
+    "named": false
+  },
+  {
+    "type": "snip-slice",
+    "named": false
+  },
+  {
+    "type": "spread",
+    "named": false
+  },
+  {
+    "type": "sq",
+    "named": false
+  },
+  {
+    "type": "start",
+    "named": false
+  },
+  {
+    "type": "start*",
+    "named": false
+  },
+  {
+    "type": "stream-bl",
+    "named": false
+  },
+  {
+    "type": "stream-contents",
+    "named": false
+  },
+  {
+    "type": "stream-contents*",
+    "named": false
+  },
+  {
+    "type": "stream-copy",
+    "named": false
+  },
+  {
+    "type": "stream-copy*",
+    "named": false
+  },
+  {
+    "type": "stream-element-type",
+    "named": false
+  },
+  {
+    "type": "stream-flush",
+    "named": false
+  },
+  {
+    "type": "stream-length",
+    "named": false
+  },
+  {
+    "type": "stream-lines",
+    "named": false
+  },
+  {
+    "type": "stream-nl",
+    "named": false
+  },
+  {
+    "type": "stream-print",
+    "named": false
+  },
+  {
+    "type": "stream-read",
+    "named": false
+  },
+  {
+    "type": "stream-read-into",
+    "named": false
+  },
+  {
+    "type": "stream-read-partial",
+    "named": false
+  },
+  {
+    "type": "stream-read-partial-into",
+    "named": false
+  },
+  {
+    "type": "stream-read-partial-unsafe",
+    "named": false
+  },
+  {
+    "type": "stream-read-unsafe",
+    "named": false
+  },
+  {
+    "type": "stream-read-until",
+    "named": false
+  },
+  {
+    "type": "stream-read1",
+    "named": false
+  },
+  {
+    "type": "stream-readln",
+    "named": false
+  },
+  {
+    "type": "stream-seek",
+    "named": false
+  },
+  {
+    "type": "stream-seekable?",
+    "named": false
+  },
+  {
+    "type": "stream-tell",
+    "named": false
+  },
+  {
+    "type": "stream-write",
+    "named": false
+  },
+  {
+    "type": "stream-write1",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": false
+  },
+  {
+    "type": "string?",
+    "named": false
+  },
+  {
+    "type": "subseq",
+    "named": false
+  },
+  {
+    "type": "subseq?",
+    "named": false
+  },
+  {
+    "type": "substitute",
+    "named": false
+  },
+  {
+    "type": "suffix",
+    "named": false
+  },
+  {
+    "type": "suffix!",
+    "named": false
+  },
+  {
+    "type": "sum",
+    "named": false
+  },
+  {
+    "type": "sum-lengths",
+    "named": false
+  },
+  {
+    "type": "supremum",
+    "named": false
+  },
+  {
+    "type": "supremum-by",
+    "named": false
+  },
+  {
+    "type": "surround",
+    "named": false
+  },
+  {
+    "type": "swap",
+    "named": false
+  },
+  {
+    "type": "swapd",
+    "named": false
+  },
+  {
+    "type": "tail",
+    "named": false
+  },
+  {
+    "type": "tail*",
+    "named": false
+  },
+  {
+    "type": "tail-slice",
+    "named": false
+  },
+  {
+    "type": "tail-slice*",
+    "named": false
+  },
+  {
+    "type": "tail?",
+    "named": false
+  },
+  {
+    "type": "tell-input",
+    "named": false
+  },
+  {
+    "type": "tell-output",
+    "named": false
+  },
+  {
+    "type": "third",
+    "named": false
+  },
+  {
+    "type": "thread-error-hook",
+    "named": false
+  },
+  {
+    "type": "throw",
+    "named": false
+  },
+  {
+    "type": "throw-continue",
+    "named": false
+  },
+  {
+    "type": "throw-restarts",
+    "named": false
+  },
+  {
+    "type": "times",
+    "named": false
+  },
+  {
+    "type": "to-fixed-point",
+    "named": false
+  },
+  {
+    "type": "toggle",
+    "named": false
+  },
+  {
+    "type": "tri",
+    "named": false
+  },
+  {
+    "type": "tri*",
+    "named": false
+  },
+  {
+    "type": "tri-curry",
+    "named": false
+  },
+  {
+    "type": "tri-curry*",
+    "named": false
+  },
+  {
+    "type": "tri-curry@",
+    "named": false
+  },
+  {
+    "type": "tri@",
+    "named": false
+  },
+  {
+    "type": "trim",
+    "named": false
+  },
+  {
+    "type": "trim-head",
+    "named": false
+  },
+  {
+    "type": "trim-head-slice",
+    "named": false
+  },
+  {
+    "type": "trim-slice",
+    "named": false
+  },
+  {
+    "type": "trim-tail",
+    "named": false
+  },
+  {
+    "type": "trim-tail-slice",
+    "named": false
+  },
+  {
+    "type": "tuple",
+    "named": false
+  },
+  {
+    "type": "tuple?",
+    "named": false
+  },
+  {
+    "type": "u<",
+    "named": false
+  },
+  {
+    "type": "u<=",
+    "named": false
+  },
+  {
+    "type": "u>",
+    "named": false
+  },
+  {
+    "type": "u>=",
+    "named": false
+  },
+  {
+    "type": "unclip",
+    "named": false
+  },
+  {
+    "type": "unclip-last",
+    "named": false
+  },
+  {
+    "type": "unclip-last-slice",
+    "named": false
+  },
+  {
+    "type": "unclip-slice",
+    "named": false
+  },
+  {
+    "type": "unless",
+    "named": false
+  },
+  {
+    "type": "unless*",
+    "named": false
+  },
+  {
+    "type": "unless-empty",
+    "named": false
+  },
+  {
+    "type": "unless-zero",
+    "named": false
+  },
+  {
+    "type": "unordered?",
+    "named": false
+  },
+  {
+    "type": "until",
+    "named": false
+  },
+  {
+    "type": "unzip",
+    "named": false
+  },
+  {
+    "type": "value-at",
+    "named": false
+  },
+  {
+    "type": "value-at*",
+    "named": false
+  },
+  {
+    "type": "value?",
+    "named": false
+  },
+  {
+    "type": "values",
+    "named": false
+  },
+  {
+    "type": "vector",
+    "named": false
+  },
+  {
+    "type": "vector?",
+    "named": false
+  },
+  {
+    "type": "virtual-exemplar",
+    "named": false
+  },
+  {
+    "type": "virtual-sequence",
+    "named": false
+  },
+  {
+    "type": "virtual-sequence?",
+    "named": false
+  },
+  {
+    "type": "virtual@",
+    "named": false
+  },
+  {
+    "type": "vocab_private",
     "named": true
   },
   {
-    "type": "ws",
-    "named": true
+    "type": "when",
+    "named": false
+  },
+  {
+    "type": "when*",
+    "named": false
+  },
+  {
+    "type": "when-empty",
+    "named": false
+  },
+  {
+    "type": "when-zero",
+    "named": false
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "with",
+    "named": false
+  },
+  {
+    "type": "with-datastack",
+    "named": false
+  },
+  {
+    "type": "with-error-stream",
+    "named": false
+  },
+  {
+    "type": "with-error-stream*",
+    "named": false
+  },
+  {
+    "type": "with-error>output",
+    "named": false
+  },
+  {
+    "type": "with-global",
+    "named": false
+  },
+  {
+    "type": "with-input-output+error-streams",
+    "named": false
+  },
+  {
+    "type": "with-input-output+error-streams*",
+    "named": false
+  },
+  {
+    "type": "with-input-stream",
+    "named": false
+  },
+  {
+    "type": "with-input-stream*",
+    "named": false
+  },
+  {
+    "type": "with-output+error-stream",
+    "named": false
+  },
+  {
+    "type": "with-output+error-stream*",
+    "named": false
+  },
+  {
+    "type": "with-output-stream",
+    "named": false
+  },
+  {
+    "type": "with-output-stream*",
+    "named": false
+  },
+  {
+    "type": "with-output>error",
+    "named": false
+  },
+  {
+    "type": "with-return",
+    "named": false
+  },
+  {
+    "type": "with-scope",
+    "named": false
+  },
+  {
+    "type": "with-streams",
+    "named": false
+  },
+  {
+    "type": "with-streams*",
+    "named": false
+  },
+  {
+    "type": "with-variable",
+    "named": false
+  },
+  {
+    "type": "with-variables",
+    "named": false
+  },
+  {
+    "type": "wrapper",
+    "named": false
+  },
+  {
+    "type": "wrapper?",
+    "named": false
+  },
+  {
+    "type": "write",
+    "named": false
+  },
+  {
+    "type": "write1",
+    "named": false
+  },
+  {
+    "type": "wrong-values",
+    "named": false
+  },
+  {
+    "type": "wrong-values?",
+    "named": false
+  },
+  {
+    "type": "xor",
+    "named": false
+  },
+  {
+    "type": "zero?",
+    "named": false
+  },
+  {
+    "type": "zip",
+    "named": false
   }
 ]

@@ -2,4 +2,4 @@
 USE: hello
 USING: kernel sequences ;
 abc bcd cde 123 t f "adasdas"
-: abc ( abc -- bcd ) 123 ;
+: abc ( abc -- bcd ) 123 swap ;
