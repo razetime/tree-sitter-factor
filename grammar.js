@@ -22,7 +22,9 @@ module.exports = grammar({
     ),
     
     word_defn: $ => choice(
-        seq(/::?/,$._ws,$.sname,$._ws,$.stack_effect,$._ws,optional($.expr),';'),
+        seq(field('word_start',/::?/),$._ws,
+            field('word_name',$.sname),$._ws,
+            field('effect',$.stack_effect),$._ws,optional($.expr),';'),
         seq(/MACRO::?/,$._ws,$.sname,$._ws,$.stack_effect,$._ws,optional($.expr),';'),
         seq(/MEMO::?/,$._ws,$.sname,$._ws,$.stack_effect,$._ws,optional($.expr),';'),
         seq(/TYPED::?/,$._ws,$.sname,$._ws,$.stack_effect,$._ws,optional($.expr),';'),
@@ -37,7 +39,7 @@ module.exports = grammar({
 
     // stack_effect: $ => /\((\s+\S+)*\s+--(\s+\S+)*\s+\)/,
     
-    stack_effect: $ => seq('(',$._ws,optional($.effect),'--',$._ws,optional($.effect),')'),
+    stack_effect: $ => seq('(',$._ws,field('params',optional($.effect)),'--',$._ws,optional($.effect),')'),
 
     effect: $ => repeat1(seq($.sname,optional(seq(':',$._ws,$.stack_effect)),$._ws)),
 

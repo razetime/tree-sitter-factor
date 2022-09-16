@@ -1,0 +1,28 @@
+=============
+Definition
+=============
+
+:: add2 ( a b c -- x y ) a b + c ;
+---
+
+(source_file
+  (word_defn
+    (sname)
+    (stack_effect
+      (effect
+        (sname)
+        (sname)
+        (sname))
+      (effect
+        (sname)
+        (sname)))
+    (expr
+      (word)
+      (word)
+      (word
+        (builtin_math))
+      (word))))
+
+=================
+String Literals
+=================
